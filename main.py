@@ -22,7 +22,6 @@ porcentaje_acumulado = (monto_acumulado / monto_meta) * 100
 meses_necesarios = (monto_meta - df['Monto Acumulado'].iloc[-1]) / df['monto'].mean()
 meses_necesarios = math.ceil(meses_necesarios)
 fecha_ult = df['fecha'].max()
-fecha_estimada_cumplimiento = fecha_ult + pd.DateOffset(months=meses_necesarios)
 
 col1, col2 = st.columns(2)
 
@@ -31,7 +30,7 @@ with col1:
     st.metric(label="Monto Meta", value=f"S/.{monto_meta:,.2f}")
     st.metric(label="% del Meta Alcanzado", value=f"{porcentaje_acumulado:.2f}%")
     st.metric(label="Abono Mensual Promedio", value=f"S/.{df['monto'].mean():.2f}")
-    st.metric(label="Fecha Cumplimiento Estimada", value=f"{fecha_estimada_cumplimiento.date()}")
+    st.metric(label="Fecha Cumplimiento Estimada", value=f"{fecha_ult.date()}")
 
 with col2:
     fig = px.bar(df, x='fecha', y='Monto Acumulado', title='Monto Acumulado')
