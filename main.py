@@ -48,6 +48,8 @@ fig.add_hline(y = monto_meta, line_dash="dash", line_color="red", annotation_tex
               annotation_position="top right")
 st.plotly_chart(fig, use_container_width=True)
 
-df_2 = df[["monto","fecha"]].T
+df2 = df.copy()
+df2['ID'] = 'Monto'
+df_pivoted = df2.pivot(index='ID', columns='fecha', values='Monto')
 
-st.dataframe(df_2)
+st.dataframe(df_pivoted)
