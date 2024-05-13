@@ -48,6 +48,6 @@ fig.add_hline(y = monto_meta, line_dash="dash", line_color="red", annotation_tex
               annotation_position="top right")
 st.plotly_chart(fig, use_container_width=True)
 
-df_2 = df.T
+df_2 = df[["monto","fecha"]].T
 
-st.dataframe(df_2.head())
+st.dataframe(df_2)
