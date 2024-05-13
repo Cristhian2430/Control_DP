@@ -16,13 +16,14 @@ with open(r"/mount/src/control_dp/control.json", 'r') as file:
 df = pd.DataFrame(list(data.items()), columns=['fecha', 'monto'])
 df['fecha'] = pd.to_datetime(df['fecha'])
 df.sort_values('fecha', inplace=True)
+df['fecha_nom'] = df['fecha']
 df['fecha'] = df['fecha'].dt.strftime('%Y/%m')
 df['Monto Acumulado'] = df['monto'].cumsum()
 monto_acumulado = df['Monto Acumulado'].iloc[-1]
 porcentaje_acumulado = (monto_acumulado / monto_meta) * 100
 meses_necesarios = (monto_meta - df['Monto Acumulado'].iloc[-1]) / df['monto'].mean()
 meses_necesarios = math.ceil(meses_necesarios)
-fecha_ult = df['fecha'].max()
+fecha_ult = df['fecha_nom'].max()
 fecha_estimada_cumplimiento = fecha_ult + relativedelta(months=+meses_necesarios)
 
 col1, col2 = st.columns(2)
