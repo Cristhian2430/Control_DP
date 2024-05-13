@@ -40,16 +40,14 @@ with col2:
     st.plotly_chart(fig, use_container_width=True)
 
 
-
-st.write('Registro de Pagos:')
-
-
-
-
+fig = px.bar(df, x='fecha', y='monto', title='Control de Pagos')
+st.plotly_chart(fig, use_container_width=True)
 
 fig = px.line(df, x='fecha', y='Monto Acumulado', title='Evolución del Monto Acumulado')
 fig.add_hline(y = monto_meta, line_dash="dash", line_color="red", annotation_text="Meta de monto", 
               annotation_position="top right")
 st.plotly_chart(fig, use_container_width=True)
 
-st.dataframe(df.head())
+df_2 = df.T
+
+st.dataframe(df_2.head())
