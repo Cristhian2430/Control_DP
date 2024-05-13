@@ -50,6 +50,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 df2 = df.copy()
 df2['ID'] = 'Monto'
-df_pivoted = df2.pivot(index='ID', columns='fecha', values='Monto')
+df_pivoted = df2.pivot(index='ID', columns='fecha', values='monto')
 
 st.dataframe(df_pivoted)
