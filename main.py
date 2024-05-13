@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
 
 st.set_page_config(layout="wide")
-st.title('Control de Pagos')
+st.title('Control de Pagos - Diana Herrera')
 monto_meta = 5500
 with open(r"/mount/src/control_dp/control.json", 'r') as file:
     data = json.load(file)
