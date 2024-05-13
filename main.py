@@ -4,12 +4,12 @@ import numpy as np
 import json
 
 st.set_page_config(layout="wide")
-st.title('Grupo 1 - PUCP Python')
-st.write('¡Hola!')
+st.title('Control de Pagos')
 
 with open(r"/mount/src/control_dp/control.json", 'r') as file:
     data = json.load(file)
 
 df = pd.DataFrame(list(data.items()), columns=['fecha', 'monto'])
 
+st.write('Registro de Pagos:')
 st.write(df.head())
