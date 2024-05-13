@@ -15,8 +15,8 @@ df['fecha'] = df['fecha'].dt.strftime('%m/%Y')
 
 st.write('Registro de Pagos:')
 
-df['Monto Acumulado'] = df['Monto'].cumsum()
-st.bar_chart(df, x="fecha", y="monto")
+df['Monto Acumulado'] = df['monto'].cumsum()
+st.bar_chart(df, x="fecha", y="Monto Acumulado")
 
 
 
