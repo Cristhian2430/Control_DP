@@ -11,12 +11,12 @@ with open(r"/mount/src/control_dp/control.json", 'r') as file:
 
 df = pd.DataFrame(list(data.items()), columns=['fecha', 'monto'])
 df['fecha'] = pd.to_datetime(df['fecha'])
+df.sort_values('fecha', inplace=True)
 df['fecha'] = df['fecha'].dt.strftime('%m/%Y')
 
 st.write('Registro de Pagos:')
 
 df['Monto Acumulado'] = df['monto'].cumsum()
-df.sort_values('fecha', inplace=True)
 
 st.bar_chart(df, x="fecha", y="Monto Acumulado")
 
