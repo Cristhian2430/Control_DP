@@ -5,6 +5,7 @@ import json
 import plotly.express as px
 import math
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
 st.set_page_config(layout="wide")
 st.title('Control de Pagos')
@@ -22,7 +23,7 @@ porcentaje_acumulado = (monto_acumulado / monto_meta) * 100
 meses_necesarios = (monto_meta - df['Monto Acumulado'].iloc[-1]) / df['monto'].mean()
 meses_necesarios = math.ceil(meses_necesarios)
 fecha_ult = df['fecha'].max()
-fecha_estimada_cumplimiento = fecha_ult + pd.DateOffset(months=meses_necesarios)
+fecha_estimada_cumplimiento = fecha_ult + relativedelta(months=meses_necesarios)
 
 col1, col2 = st.columns(2)
 
