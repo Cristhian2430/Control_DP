@@ -18,8 +18,8 @@ df['Monto Acumulado'] = df['monto'].cumsum()
 monto_acumulado = df['Monto Acumulado'].iloc[-1]
 porcentaje_acumulado = (monto_acumulado / monto_meta) * 100
 
-st.metric(label="Monto Acumulado", value=f"${monto_acumulado:,.0f}")
-st.metric(label="Monto Meta", value=f"${monto_meta:,.0f}")
+st.metric(label="Monto Acumulado", value=f"S/.{monto_acumulado:,.2f}")
+st.metric(label="Monto Meta", value=f"S/.{monto_meta:,.2f}")
 st.metric(label="% del Meta Alcanzado", value=f"{porcentaje_acumulado:.2f}%")
 
 
