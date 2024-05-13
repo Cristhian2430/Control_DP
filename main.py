@@ -19,6 +19,7 @@ st.write('Registro de Pagos:')
 df['Monto Acumulado'] = df['monto'].cumsum()
 
 st.bar_chart(df, x="fecha", y="Monto Acumulado")
+st.line_chart(df, x="fecha", y="Monto Acumulado")
 
 
 
