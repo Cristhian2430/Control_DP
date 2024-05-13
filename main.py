@@ -33,7 +33,7 @@ with col1:
     st.metric(label="Monto Meta", value=f"S/.{monto_meta:,.2f}")
     st.metric(label="% del Meta Alcanzado", value=f"{porcentaje_acumulado:.2f}%")
     st.metric(label="Abono Mensual Promedio", value=f"S/.{df['monto'].mean():.2f}")
-    st.metric(label="Fecha Cumplimiento Estimada", value=f"{meses_necesarios}")
+    st.metric(label="Fecha Cumplimiento Estimada", value=f"{fecha_estimada_cumplimiento.date()}")
 
 with col2:
     fig = px.bar(df, x='fecha', y='Monto Acumulado', title='Monto Acumulado')
