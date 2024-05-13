@@ -14,4 +14,8 @@ df['fecha'] = pd.to_datetime(df['fecha'])
 df['fecha'] = df['fecha'].dt.strftime('%m/%Y')
 
 st.write('Registro de Pagos:')
+
+st.bar_chart(df, x="fecha", y="monto")
+
+
 st.write(df.head())
