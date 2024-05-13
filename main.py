@@ -10,8 +10,8 @@ with open(r"/mount/src/control_dp/control.json", 'r') as file:
     data = json.load(file)
 
 df = pd.DataFrame(list(data.items()), columns=['fecha', 'monto'])
-df['Fecha'] = pd.to_datetime(df['Fecha'])
-df['Fecha'] = df['Fecha'].dt.strftime('%m/%Y')
+df['fecha'] = pd.to_datetime(df['fecha'])
+df['fecha'] = df['fecha'].dt.strftime('%m/%Y')
 
 st.write('Registro de Pagos:')
 st.write(df.head())
