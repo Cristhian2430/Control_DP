@@ -24,7 +24,7 @@ with col1:
     st.metric(label="Monto Acumulado", value=f"S/.{monto_acumulado:,.2f}")
     st.metric(label="Monto Meta", value=f"S/.{monto_meta:,.2f}")
     st.metric(label="% del Meta Alcanzado", value=f"{porcentaje_acumulado:.2f}%")
-    st.metric(label="Abono Mensual", value=f"{df['Monto Acumulado'].mean():.2f}%")
+    st.metric(label="Abono Mensual", value=f"S/.{df['monto'].mean():.2f}")
 with col2:
     fig = px.bar(df, x='fecha', y='Monto Acumulado', title='Monto Acumulado')
     st.plotly_chart(fig, use_container_width=True)
